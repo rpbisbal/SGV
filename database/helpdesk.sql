@@ -6,9 +6,9 @@ CREATE SCHEMA IF NOT EXISTS `SGV_helpdesk` DEFAULT CHARACTER SET utf8 COLLATE ut
 USE `SGV_helpdesk` ;
 
 -- -----------------------------------------------------
--- Table `SGV_helpdesk`.`user`
+-- Table `SGV_helpdesk`.`admins`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SGV_helpdesk`.`user` (
+CREATE TABLE IF NOT EXISTS `SGV_helpdesk`.`admins` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(255) NULL,
   `password` VARCHAR(255) NULL,
@@ -27,13 +27,13 @@ CREATE TABLE IF NOT EXISTS `SGV_helpdesk`.`employee` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `cbs_lastname` VARCHAR(45) NOT NULL,
   `cbs_firstname` VARCHAR(45) NULL,
-  `user_iduser` INT NOT NULL,
+  `admins_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `idemployee_UNIQUE` (`id` ASC),
-  INDEX `fk_employee_user_idx` (`user_iduser` ASC),
-  CONSTRAINT `fk_employee_user`
-    FOREIGN KEY (`user_iduser`)
-    REFERENCES `SGV_helpdesk`.`user` (`id`)
+  INDEX `fk_employee_admins1_idx` (`admins_id` ASC),
+  CONSTRAINT `fk_employee_admins1`
+    FOREIGN KEY (`admins_id`)
+    REFERENCES `SGV_helpdesk`.`admins` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
