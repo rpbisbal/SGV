@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `SGV_helpdesk`.`admins` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(255) NULL,
   `password` VARCHAR(255) NULL,
-  `user_type` INT NULL,
+  `admin_type` INT NULL,
   `created_time` TIMESTAMP NULL,
   `updated_time` DATETIME NULL,
   PRIMARY KEY (`id`),
