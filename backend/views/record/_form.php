@@ -3,7 +3,6 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
-use dosamigos\datepicker\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Record */
@@ -33,19 +32,7 @@ use dosamigos\datepicker\DatePicker;
     <?= $form->field($model, 'date_recieved')->textInput() ?>
 
     <?= $form->field($model, 'remarks')->textInput(['maxlength' => true]) ?>
-
     
-	
-	
-	
-
-    
-
-     <?= $form->field($model, 'recordcol')->textInput(['maxlength' => true]) ?>
-
-    
-	
-	
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

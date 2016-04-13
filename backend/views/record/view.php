@@ -35,8 +35,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'remarks',
             'employee_id',
             'short_description',
-            'recordcol',
             'problem_id',
+            'category_id',
         ],
     ]) ?>
 
