@@ -36,7 +36,7 @@ class Record extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['employee_name', 'action_taken', 'employee_id', 'recordcol', 'problem_id'], 'required'],
+            [['employee_name', 'action_taken', 'employee_id', 'short_description', 'recordcol', 'problem_id'], 'required'],
             [['date_recieved'], 'safe'],
             [['employee_id', 'problem_id'], 'integer'],
             [['employee_name', 'recordcol'], 'string', 'max' => 45],

@@ -11,7 +11,6 @@ use Yii;
  * @property string $problem_type
  * @property string $description
  * @property integer $record_id
- * @property string $problemcol
  *
  * @property Record[] $records
  * @property Reports[] $reports
@@ -34,8 +33,7 @@ class Problem extends \yii\db\ActiveRecord
         return [
             [['problem_type', 'record_id'], 'required'],
             [['record_id'], 'integer'],
-            [['problem_type', 'description'], 'string', 'max' => 255],
-            [['problemcol'], 'string', 'max' => 45]
+            [['problem_type', 'description'], 'string', 'max' => 255]
         ];
     }
 
@@ -49,7 +47,6 @@ class Problem extends \yii\db\ActiveRecord
             'problem_type' => 'Problem Type',
             'description' => 'Description',
             'record_id' => 'Record ID',
-            'problemcol' => 'Problemcol',
         ];
     }
 

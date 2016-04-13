@@ -19,7 +19,7 @@ class ProblemSearch extends Problem
     {
         return [
             [['id', 'record_id'], 'integer'],
-            [['problem_type', 'description', 'problemcol'], 'safe'],
+            [['problem_type', 'description'], 'safe'],
         ];
     }
 
@@ -61,8 +61,7 @@ class ProblemSearch extends Problem
         ]);
 
         $query->andFilterWhere(['like', 'problem_type', $this->problem_type])
-            ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'problemcol', $this->problemcol]);
+            ->andFilterWhere(['like', 'description', $this->description]);
 
         return $dataProvider;
     }
