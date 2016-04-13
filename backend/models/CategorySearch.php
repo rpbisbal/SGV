@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Record;
+use backend\models\Category;
 
 /**
- * RecordSearch represents the model behind the search form about `backend\models\Record`.
+ * CategorySearch represents the model behind the search form about `backend\models\Category`.
  */
-class RecordSearch extends Record
+class CategorySearch extends Category
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class RecordSearch extends Record
     public function rules()
     {
         return [
-            [['id', 'employee_id', 'problem_id', 'category_id'], 'integer'],
-            [['employee_name', 'action_taken', 'date_recieved', 'remarks', 'short_description'], 'safe'],
+            [['id'], 'integer'],
+            [['category_type'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class RecordSearch extends Record
      */
     public function search($params)
     {
-        $query = Record::find();
+        $query = Category::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -57,16 +57,9 @@ class RecordSearch extends Record
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'date_recieved' => $this->date_recieved,
-            'employee_id' => $this->employee_id,
-            'problem_id' => $this->problem_id,
-            'category_id' => $this->category_id,
         ]);
 
-        $query->andFilterWhere(['like', 'employee_name', $this->employee_name])
-            ->andFilterWhere(['like', 'action_taken', $this->action_taken])
-            ->andFilterWhere(['like', 'remarks', $this->remarks])
-            ->andFilterWhere(['like', 'short_description', $this->short_description]);
+        $query->andFilterWhere(['like', 'category_type', $this->category_type]);
 
         return $dataProvider;
     }
