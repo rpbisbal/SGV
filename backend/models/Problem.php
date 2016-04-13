@@ -9,8 +9,6 @@ use Yii;
  *
  * @property integer $id
  * @property string $problem_type
- * @property string $description
- * @property integer $record_id
  *
  * @property Record[] $records
  * @property Reports[] $reports
@@ -31,9 +29,8 @@ class Problem extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['problem_type', 'record_id'], 'required'],
-            [['record_id'], 'integer'],
-            [['problem_type', 'description'], 'string', 'max' => 255]
+            [['problem_type'], 'required'],
+            [['problem_type'], 'string', 'max' => 255]
         ];
     }
 
@@ -45,8 +42,6 @@ class Problem extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'problem_type' => 'Problem Type',
-            'description' => 'Description',
-            'record_id' => 'Record ID',
         ];
     }
 
