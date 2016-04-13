@@ -54,6 +54,7 @@ AppAsset::register($this);
 						'items' => [
 							['label' => 'Problem', 'url' => ['/problem']],
 							['label' => 'Employee', 'url' => ['/employee']],
+							['label' => 'Cagtegory', 'url' => ['/category']],
 							
 						],
 

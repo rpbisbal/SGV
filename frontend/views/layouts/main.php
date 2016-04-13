@@ -35,14 +35,20 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-        ['label' => 'Record', 'url' => ['/record/index']],
-        ['label' => 'Reports', 'url' => ['/reports/index']],
+        ['label' => 'Home', 'url' => ['/site/index']],     
+        
 
 
     ];
+	$menuItems[]=['label' => 'Logs',
+					   'visible' => !Yii::$app->user->isGuest,
+						'items' => [
+							['label' => 'Reports', 'url' => ['/reports']],
+							['label' => 'Records', 'url' => ['/record']],
+							
+						],
+
+					];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
