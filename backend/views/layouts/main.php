@@ -39,7 +39,7 @@ AppAsset::register($this);
     ];
 	
 	
-	$menuItems[]=['label' => 'Document',
+	$menuItems[]=['label' => 'Logs',
 					   'visible' => !Yii::$app->user->isGuest,
 						'items' => [
 							['label' => 'Reports', 'url' => ['/reports']],
