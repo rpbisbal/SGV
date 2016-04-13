@@ -19,10 +19,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'problem_type') ?>
 
-    <?= $form->field($model, 'description') ?>
-
-    <?= $form->field($model, 'record_id') ?>
-
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>

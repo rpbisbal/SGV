@@ -18,8 +18,8 @@ class ProblemSearch extends Problem
     public function rules()
     {
         return [
-            [['id', 'record_id'], 'integer'],
-            [['problem_type', 'description'], 'safe'],
+            [['id'], 'integer'],
+            [['problem_type'], 'safe'],
         ];
     }
 
@@ -57,11 +57,9 @@ class ProblemSearch extends Problem
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'record_id' => $this->record_id,
         ]);
 
-        $query->andFilterWhere(['like', 'problem_type', $this->problem_type])
-            ->andFilterWhere(['like', 'description', $this->description]);
+        $query->andFilterWhere(['like', 'problem_type', $this->problem_type]);
 
         return $dataProvider;
     }
