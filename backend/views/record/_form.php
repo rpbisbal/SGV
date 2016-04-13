@@ -34,12 +34,6 @@ use dosamigos\datepicker\DatePicker;
 
     <?= $form->field($model, 'remarks')->textInput(['maxlength' => true]) ?>
 
-    
-	
-	
-	
-
-    
 
      <?= $form->field($model, 'recordcol')->textInput(['maxlength' => true]) ?>
 
