@@ -16,13 +16,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'top1')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'record_id')->textInput() ?>
 
-    <?= $form->field($model, 'top2')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'top3')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'reports_id')->textInput() ?>
+    <?= $form->field($model, 'problemcol')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

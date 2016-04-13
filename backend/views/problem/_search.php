@@ -21,13 +21,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description') ?>
 
-    <?= $form->field($model, 'top1') ?>
+    <?= $form->field($model, 'record_id') ?>
 
-    <?= $form->field($model, 'top2') ?>
-
-    <?php // echo $form->field($model, 'top3') ?>
-
-    <?php // echo $form->field($model, 'reports_id') ?>
+    <?= $form->field($model, 'problemcol') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

@@ -19,19 +19,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'category') ?>
 
-    <?= $form->field($model, 'top1') ?>
+    <?= $form->field($model, 'tnf') ?>
 
-    <?= $form->field($model, 'top2') ?>
+    <?= $form->field($model, 'lan_cable') ?>
 
-    <?= $form->field($model, 'top3') ?>
-
-    <?php // echo $form->field($model, 'tnf') ?>
-
-    <?php // echo $form->field($model, 'lan_cable') ?>
-
-    <?php // echo $form->field($model, 'ip_phone') ?>
+    <?= $form->field($model, 'ip_phone') ?>
 
     <?php // echo $form->field($model, 'remarks') ?>
+
+    <?php // echo $form->field($model, 'problem_id') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

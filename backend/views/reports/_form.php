@@ -14,12 +14,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'category')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'top1')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'top2')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'top3')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'tnf')->textInput() ?>
 
     <?= $form->field($model, 'lan_cable')->textInput() ?>
@@ -27,6 +21,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'ip_phone')->textInput() ?>
 
     <?= $form->field($model, 'remarks')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'problem_id')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

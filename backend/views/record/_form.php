@@ -22,7 +22,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'employee_id')->textInput() ?>
 
-    <?= $form->field($model, 'common_id')->textInput() ?>
+    <?= $form->field($model, 'short_description')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'recordcol')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'problem_id')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

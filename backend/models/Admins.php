@@ -10,7 +10,7 @@ use Yii;
  * @property integer $id
  * @property string $username
  * @property string $password
- * @property integer $user_type
+ * @property integer $admin_type
  * @property string $created_time
  * @property string $updated_time
  *
@@ -32,7 +32,7 @@ class Admins extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_type'], 'integer'],
+            [['admin_type'], 'integer'],
             [['created_time', 'updated_time'], 'safe'],
             [['username', 'password'], 'string', 'max' => 255]
         ];
@@ -47,7 +47,7 @@ class Admins extends \yii\db\ActiveRecord
             'id' => 'ID',
             'username' => 'Username',
             'password' => 'Password',
-            'user_type' => 'User Type',
+            'admin_type' => 'Admin Type',
             'created_time' => 'Created Time',
             'updated_time' => 'Updated Time',
         ];

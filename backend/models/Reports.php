@@ -9,15 +9,13 @@ use Yii;
  *
  * @property integer $id
  * @property string $category
- * @property string $top1
- * @property string $top2
- * @property string $top3
  * @property integer $tnf
  * @property integer $lan_cable
  * @property integer $ip_phone
  * @property string $remarks
+ * @property integer $problem_id
  *
- * @property Problem[] $problems
+ * @property Problem $problem
  */
 class Reports extends \yii\db\ActiveRecord
 {
@@ -35,9 +33,9 @@ class Reports extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['top1', 'top2', 'top3'], 'required'],
-            [['tnf', 'lan_cable', 'ip_phone'], 'integer'],
-            [['category', 'top1', 'top2', 'top3', 'remarks'], 'string', 'max' => 255]
+            [['tnf', 'lan_cable', 'ip_phone', 'problem_id'], 'integer'],
+            [['problem_id'], 'required'],
+            [['category', 'remarks'], 'string', 'max' => 255]
         ];
     }
 
@@ -49,21 +47,19 @@ class Reports extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'category' => 'Category',
-            'top1' => 'Top1',
-            'top2' => 'Top2',
-            'top3' => 'Top3',
             'tnf' => 'Tnf',
             'lan_cable' => 'Lan Cable',
             'ip_phone' => 'Ip Phone',
             'remarks' => 'Remarks',
+            'problem_id' => 'Problem ID',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getProblems()
+    public function getProblem()
     {
-        return $this->hasMany(Problem::className(), ['reports_id' => 'id']);
+        return $this->hasOne(Problem::className(), ['id' => 'problem_id']);
     }
 }

@@ -10,13 +10,11 @@ use Yii;
  * @property integer $id
  * @property string $problem_type
  * @property string $description
- * @property string $top1
- * @property string $top2
- * @property string $top3
- * @property integer $reports_id
+ * @property integer $record_id
+ * @property string $problemcol
  *
- * @property Common[] $commons
- * @property Reports $reports
+ * @property Record[] $records
+ * @property Reports[] $reports
  */
 class Problem extends \yii\db\ActiveRecord
 {
@@ -34,9 +32,10 @@ class Problem extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['problem_type', 'top1', 'top2', 'top3', 'reports_id'], 'required'],
-            [['reports_id'], 'integer'],
-            [['problem_type', 'description', 'top1', 'top2', 'top3'], 'string', 'max' => 255]
+            [['problem_type', 'record_id'], 'required'],
+            [['record_id'], 'integer'],
+            [['problem_type', 'description'], 'string', 'max' => 255],
+            [['problemcol'], 'string', 'max' => 45]
         ];
     }
 
@@ -49,19 +48,17 @@ class Problem extends \yii\db\ActiveRecord
             'id' => 'ID',
             'problem_type' => 'Problem Type',
             'description' => 'Description',
-            'top1' => 'Top1',
-            'top2' => 'Top2',
-            'top3' => 'Top3',
-            'reports_id' => 'Reports ID',
+            'record_id' => 'Record ID',
+            'problemcol' => 'Problemcol',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getCommons()
+    public function getRecords()
     {
-        return $this->hasMany(Common::className(), ['problem_id' => 'id']);
+        return $this->hasMany(Record::className(), ['problem_id' => 'id']);
     }
 
     /**
@@ -69,6 +66,6 @@ class Problem extends \yii\db\ActiveRecord
      */
     public function getReports()
     {
-        return $this->hasOne(Reports::className(), ['id' => 'reports_id']);
+        return $this->hasMany(Reports::className(), ['problem_id' => 'id']);
     }
 }

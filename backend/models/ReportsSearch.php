@@ -18,8 +18,8 @@ class ReportsSearch extends Reports
     public function rules()
     {
         return [
-            [['id', 'tnf', 'lan_cable', 'ip_phone'], 'integer'],
-            [['category', 'top1', 'top2', 'top3', 'remarks'], 'safe'],
+            [['id', 'tnf', 'lan_cable', 'ip_phone', 'problem_id'], 'integer'],
+            [['category', 'remarks'], 'safe'],
         ];
     }
 
@@ -60,12 +60,10 @@ class ReportsSearch extends Reports
             'tnf' => $this->tnf,
             'lan_cable' => $this->lan_cable,
             'ip_phone' => $this->ip_phone,
+            'problem_id' => $this->problem_id,
         ]);
 
         $query->andFilterWhere(['like', 'category', $this->category])
-            ->andFilterWhere(['like', 'top1', $this->top1])
-            ->andFilterWhere(['like', 'top2', $this->top2])
-            ->andFilterWhere(['like', 'top3', $this->top3])
             ->andFilterWhere(['like', 'remarks', $this->remarks]);
 
         return $dataProvider;

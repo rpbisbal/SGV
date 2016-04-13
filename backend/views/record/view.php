@@ -34,7 +34,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'date_recieved',
             'remarks',
             'employee_id',
-            'common_id',
+            'short_description',
+            'recordcol',
+            'problem_id',
         ],
     ]) ?>
 

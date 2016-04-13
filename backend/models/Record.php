@@ -13,10 +13,12 @@ use Yii;
  * @property string $date_recieved
  * @property string $remarks
  * @property integer $employee_id
- * @property integer $common_id
+ * @property string $short_description
+ * @property string $recordcol
+ * @property integer $problem_id
  *
- * @property Common $common
  * @property Employee $employee
+ * @property Problem $problem
  */
 class Record extends \yii\db\ActiveRecord
 {
@@ -34,11 +36,11 @@ class Record extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['employee_name', 'action_taken', 'employee_id', 'common_id'], 'required'],
+            [['employee_name', 'action_taken', 'employee_id', 'recordcol', 'problem_id'], 'required'],
             [['date_recieved'], 'safe'],
-            [['employee_id', 'common_id'], 'integer'],
-            [['employee_name'], 'string', 'max' => 45],
-            [['action_taken', 'remarks'], 'string', 'max' => 255]
+            [['employee_id', 'problem_id'], 'integer'],
+            [['employee_name', 'recordcol'], 'string', 'max' => 45],
+            [['action_taken', 'remarks', 'short_description'], 'string', 'max' => 255]
         ];
     }
 
@@ -54,16 +56,10 @@ class Record extends \yii\db\ActiveRecord
             'date_recieved' => 'Date Recieved',
             'remarks' => 'Remarks',
             'employee_id' => 'Employee ID',
-            'common_id' => 'Common ID',
+            'short_description' => 'Short Description',
+            'recordcol' => 'Recordcol',
+            'problem_id' => 'Problem ID',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCommon()
-    {
-        return $this->hasOne(Common::className(), ['id' => 'common_id']);
     }
 
     /**
@@ -72,5 +68,13 @@ class Record extends \yii\db\ActiveRecord
     public function getEmployee()
     {
         return $this->hasOne(Employee::className(), ['id' => 'employee_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProblem()
+    {
+        return $this->hasOne(Problem::className(), ['id' => 'problem_id']);
     }
 }
