@@ -36,8 +36,6 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
-		['label' => 'Add Problem', 'url' => ['/problem']],
-		['label' => 'Add Employee', 'url' => ['/employee']],
     ];
 	
 	
@@ -46,6 +44,16 @@ AppAsset::register($this);
 						'items' => [
 							['label' => 'Reports', 'url' => ['/reports']],
 							['label' => 'Records', 'url' => ['/record']],
+							
+						],
+
+					];
+					
+	$menuItems[]=['label' => 'Add',
+						'visible' => !Yii::$app->user->isGuest,
+						'items' => [
+							['label' => 'Problem', 'url' => ['/problem']],
+							['label' => 'Employee', 'url' => ['/employee']],
 							
 						],
 
