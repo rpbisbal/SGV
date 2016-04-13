@@ -18,8 +18,8 @@ class RecordSearch extends Record
     public function rules()
     {
         return [
-            [['id', 'employee_id', 'problem_id'], 'integer'],
-            [['employee_name', 'action_taken', 'date_recieved', 'remarks', 'short_description', 'recordcol'], 'safe'],
+            [['id', 'employee_id', 'problem_id', 'category_id'], 'integer'],
+            [['employee_name', 'action_taken', 'date_recieved', 'remarks', 'short_description'], 'safe'],
         ];
     }
 
@@ -60,13 +60,13 @@ class RecordSearch extends Record
             'date_recieved' => $this->date_recieved,
             'employee_id' => $this->employee_id,
             'problem_id' => $this->problem_id,
+            'category_id' => $this->category_id,
         ]);
 
         $query->andFilterWhere(['like', 'employee_name', $this->employee_name])
             ->andFilterWhere(['like', 'action_taken', $this->action_taken])
             ->andFilterWhere(['like', 'remarks', $this->remarks])
-            ->andFilterWhere(['like', 'short_description', $this->short_description])
-            ->andFilterWhere(['like', 'recordcol', $this->recordcol]);
+            ->andFilterWhere(['like', 'short_description', $this->short_description]);
 
         return $dataProvider;
     }

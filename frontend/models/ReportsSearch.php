@@ -19,7 +19,7 @@ class ReportsSearch extends Reports
     {
         return [
             [['id', 'tnf', 'lan_cable', 'ip_phone', 'problem_id'], 'integer'],
-            [['category', 'remarks'], 'safe'],
+            [['remarks'], 'safe'],
         ];
     }
 
@@ -63,8 +63,7 @@ class ReportsSearch extends Reports
             'problem_id' => $this->problem_id,
         ]);
 
-        $query->andFilterWhere(['like', 'category', $this->category])
-            ->andFilterWhere(['like', 'remarks', $this->remarks]);
+        $query->andFilterWhere(['like', 'remarks', $this->remarks]);
 
         return $dataProvider;
     }
