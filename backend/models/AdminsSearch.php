@@ -18,7 +18,7 @@ class AdminsSearch extends Admins
     public function rules()
     {
         return [
-            [['id', 'admin_type'], 'integer'],
+            [['id', 'admin_type', 'employee_id'], 'integer'],
             [['username', 'password', 'created_time', 'updated_time'], 'safe'],
         ];
     }
@@ -60,6 +60,7 @@ class AdminsSearch extends Admins
             'admin_type' => $this->admin_type,
             'created_time' => $this->created_time,
             'updated_time' => $this->updated_time,
+            'employee_id' => $this->employee_id,
         ]);
 
         $query->andFilterWhere(['like', 'username', $this->username])

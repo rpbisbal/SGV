@@ -13,8 +13,9 @@ use Yii;
  * @property integer $admin_type
  * @property string $created_time
  * @property string $updated_time
+ * @property integer $employee_id
  *
- * @property Employee[] $employees
+ * @property Employee $employee
  */
 class Admins extends \yii\db\ActiveRecord
 {
@@ -32,8 +33,9 @@ class Admins extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['admin_type'], 'integer'],
+            [['admin_type', 'employee_id'], 'integer'],
             [['created_time', 'updated_time'], 'safe'],
+            [['employee_id'], 'required'],
             [['username', 'password'], 'string', 'max' => 255]
         ];
     }
@@ -50,14 +52,15 @@ class Admins extends \yii\db\ActiveRecord
             'admin_type' => 'Admin Type',
             'created_time' => 'Created Time',
             'updated_time' => 'Updated Time',
+            'employee_id' => 'Employee ID',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getEmployees()
+    public function getEmployee()
     {
-        return $this->hasMany(Employee::className(), ['admins_id' => 'id']);
+        return $this->hasOne(Employee::className(), ['id' => 'employee_id']);
     }
 }

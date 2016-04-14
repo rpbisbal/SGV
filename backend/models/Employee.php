@@ -10,9 +10,8 @@ use Yii;
  * @property integer $id
  * @property string $cbs_lastname
  * @property string $cbs_firstname
- * @property integer $admins_id
  *
- * @property Admins $admins
+ * @property Admins[] $admins
  * @property Record[] $records
  */
 class Employee extends \yii\db\ActiveRecord
@@ -31,8 +30,7 @@ class Employee extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['cbs_lastname', 'admins_id'], 'required'],
-            [['admins_id'], 'integer'],
+            [['cbs_lastname'], 'required'],
             [['cbs_lastname', 'cbs_firstname'], 'string', 'max' => 45]
         ];
     }
@@ -46,7 +44,6 @@ class Employee extends \yii\db\ActiveRecord
             'id' => 'ID',
             'cbs_lastname' => 'Cbs Lastname',
             'cbs_firstname' => 'Cbs Firstname',
-            'admins_id' => 'Admins ID',
         ];
     }
 
@@ -55,7 +52,7 @@ class Employee extends \yii\db\ActiveRecord
      */
     public function getAdmins()
     {
-        return $this->hasOne(Admins::className(), ['id' => 'admins_id']);
+        return $this->hasMany(Admins::className(), ['employee_id' => 'id']);
     }
 
     /**

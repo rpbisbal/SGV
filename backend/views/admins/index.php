@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'admin_type',
             'created_time',
             // 'updated_time',
+            // 'employee_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
