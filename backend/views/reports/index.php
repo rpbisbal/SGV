@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'lan_cable',
             'ip_phone',
             'remarks',
-            // 'problem_id',
+            'problem_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
