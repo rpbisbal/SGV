@@ -8,7 +8,6 @@ use Yii;
  * This is the model class for table "reports".
  *
  * @property integer $id
- * @property string $category
  * @property integer $tnf
  * @property integer $lan_cable
  * @property integer $ip_phone
@@ -35,7 +34,7 @@ class Reports extends \yii\db\ActiveRecord
         return [
             [['tnf', 'lan_cable', 'ip_phone', 'problem_id'], 'integer'],
             [['problem_id'], 'required'],
-            [['category', 'remarks'], 'string', 'max' => 255]
+            [['remarks'], 'string', 'max' => 255]
         ];
     }
 
@@ -46,7 +45,6 @@ class Reports extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'category' => 'Category',
             'tnf' => 'Tnf',
             'lan_cable' => 'Lan Cable',
             'ip_phone' => 'Ip Phone',

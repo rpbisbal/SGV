@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'employee_id',
             'short_description',
             'problem_id',
-            'category_id',
+            'category',
         ],
     ]) ?>
 

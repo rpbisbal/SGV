@@ -13,11 +13,6 @@ use yii\helpers\ArrayHelper;
 
     <?php $form = ActiveForm::begin(); ?>
 	
-	<?= $form->field($model, 'problem_id')->dropDownList(
-       ArrayHelper::map(\backend\models\Problem::find()->all(),'id', 'problem_type'),
-	   ['prompt'=>'Top 3 problems']
-    ) ?>
-
     <?= $form->field($model, 'tnf')->textInput() ?>
 
     <?= $form->field($model, 'lan_cable')->textInput() ?>

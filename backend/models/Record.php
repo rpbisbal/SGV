@@ -15,9 +15,8 @@ use Yii;
  * @property integer $employee_id
  * @property string $short_description
  * @property integer $problem_id
- * @property integer $category_id
+ * @property string $category
  *
- * @property Category $category
  * @property Employee $employee
  * @property Problem $problem
  */
@@ -37,11 +36,11 @@ class Record extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['employee_name', 'action_taken', 'employee_id', 'short_description', 'problem_id', 'category_id'], 'required'],
+            [['employee_name', 'action_taken', 'employee_id', 'short_description', 'problem_id', 'category'], 'required'],
             [['date_recieved'], 'safe'],
-            [['employee_id', 'problem_id', 'category_id'], 'integer'],
+            [['employee_id', 'problem_id'], 'integer'],
             [['employee_name'], 'string', 'max' => 45],
-            [['action_taken', 'remarks', 'short_description'], 'string', 'max' => 255]
+            [['action_taken', 'remarks', 'short_description', 'category'], 'string', 'max' => 255]
         ];
     }
 
@@ -59,16 +58,8 @@ class Record extends \yii\db\ActiveRecord
             'employee_id' => 'Employee ID',
             'short_description' => 'Short Description',
             'problem_id' => 'Problem ID',
-            'category_id' => 'Category ID',
+            'category' => 'Category',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCategory()
-    {
-        return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
 
     /**
